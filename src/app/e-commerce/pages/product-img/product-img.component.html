@@ -1,0 +1,15 @@
+<section class="product">
+  <picture class="product__picture">
+    <img [src]="urlImage | imagen" alt="" class="product__img" />
+  </picture>
+  <div class="product__carousel">
+    <img
+      *ngFor="let item of productosImg"
+      [src]="item.name | imagen"
+      alt="Product"
+      class="product__item"
+      (click)="selected(item.name)"
+      (dblclick)="expand()"
+    />
+  </div>
+</section>

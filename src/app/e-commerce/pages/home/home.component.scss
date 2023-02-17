@@ -1,0 +1,16 @@
+.section {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  min-height: 1000px;
+}
+
+.section__img,
+.section__description {
+  width: 100%;
+
+}
+
+
