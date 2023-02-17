@@ -1,13 +1,13 @@
 <header class="header">
   <ul class="header__list">
-    <img [src]="'logo.svg' | imagen" alt="logo" />
+    <img src="../../../../assets/images/logo.svg" alt="logo" />
     <li *ngFor="let item of menuItem" class="header__item">{{ item.name }}</li>
   </ul>
 
   <div class="header__shop">
     <ng-container [ngTemplateOutlet]="cart"></ng-container>
     <picture class="header__picture">
-      <img [src]="'image-avatar.png' | imagen" alt="user" class="header__img" />
+      <img src="../../../../assets/images/image-avatar.png" alt="user" class="header__img" />
     </picture>
   </div>
 </header>
