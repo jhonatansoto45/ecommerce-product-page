@@ -1,0 +1,77 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.cart__title {
+  padding: 15px;
+  width: 100%;
+  color: var(--black);
+  font-weight: 700;
+  border-bottom: 1px solid var(--grayish-blue);
+}
+
+.cart___list {
+  padding: 15px;
+}
+
+.cart___list {
+  height: 100px;
+}
+
+.cart__check {
+  width: 90%;
+  margin: 0 auto;
+  padding: 13px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--orange);
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.cart__check:active {
+  filter: brightness(1.15);
+}
+
+.cart__item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart__img {
+  width: 47px;
+  border-radius: 8px;
+}
+
+.cart__description {
+  font-size: 0.9rem;
+  color: var(--dark-grayish-blue);
+
+  strong {
+    color: var(--very-dark-blue);
+  }
+}
+
+.cart__delete {
+  border: none;
+  background-color: var(--white);
+}
+
+.cart__delete::before {
+  content: url("../../../../assets/images/icon-delete.svg");
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cart__delete:hover::before {
+  filter: brightness(0.1);
+}

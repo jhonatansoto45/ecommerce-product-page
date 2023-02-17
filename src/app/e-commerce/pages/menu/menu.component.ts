@@ -10,6 +10,8 @@ interface MenuItem {
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
+  visibleCart: boolean = false;
+
   menuItem: MenuItem[] = [
     {
       name: 'Collections',
@@ -27,4 +29,8 @@ export class MenuComponent {
       name: 'Contact',
     },
   ];
+
+  openCart(): void {
+    this.visibleCart = !this.visibleCart;
+  }
 }

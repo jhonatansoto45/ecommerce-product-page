@@ -5,9 +5,18 @@
   </ul>
 
   <div class="header__shop">
-    <button class="header_cart"></button>
+    <ng-container [ngTemplateOutlet]="cart"></ng-container>
     <picture class="header__picture">
       <img [src]="'image-avatar.png' | imagen" alt="user" class="header__img" />
     </picture>
   </div>
 </header>
+
+<ng-template #cart>
+  <div class="cart">
+    <button class="header_cart" (click)="openCart()" ></button>
+    <div class="cart__popup" id="cart__popup" [ngClass]="{'not-visible': !visibleCart}" >
+      <app-cart></app-cart>
+    </div>
+  </div>
+</ng-template>
