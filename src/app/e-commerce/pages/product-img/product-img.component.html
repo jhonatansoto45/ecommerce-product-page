@@ -1,5 +1,5 @@
 <section class="product">
-  <picture class="product__picture">
+  <picture class="product__picture" (click)="expand()">
     <img [src]="urlImage | imagen" alt="" class="product__img" />
   </picture>
   <div class="product__carousel">
@@ -7,14 +7,13 @@
       class="product__picture__item"
       *ngFor="let item of productosImg"
       [ngClass]="{ active__border: item.active }"
+      (click)="selected(item.name)"
     >
       <img
         [src]="item.name | imagen"
         alt="Product"
         [ngClass]="{ active__img: item.active }"
         class="product__img__item"
-        (click)="selected(item.name)"
-        (dblclick)="expand()"
       />
     </picture>
   </div>

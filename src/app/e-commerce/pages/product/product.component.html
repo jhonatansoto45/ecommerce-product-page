@@ -1,1 +1,24 @@
-<p>product works!</p>
+<section class="product">
+  <h4 class="product__company">sneaker company</h4>
+  <h2 class="product__title">Fall Limited Edition Sneakers</h2>
+  <p class="product__description">
+    These low-profile sneakers are your perfect casual wear companion. Featuring
+    a durable rubber outer sole, they'll withstand everything the weather can
+    offer.
+  </p>
+
+  <div class="product__offer">
+    <span class="product__price"> $125.000 </span>
+    <span class="product__discount"> 50% </span>
+  </div>
+  <span class="product__normal">$250.00</span>
+
+  <div class="product__cart">
+    <div class="product__add">
+      <button class="product__less" (click)="lessProduct()">-</button>
+      <span class="product__count"> {{ product }} </span>
+      <button class="product__more" (click)="moreProduct()">+</button>
+    </div>
+    <button class="product__add__cart">Add to cart</button>
+  </div>
+</section>

@@ -1,0 +1,119 @@
+.product {
+  margin: 40px 0;
+}
+
+.product__company {
+  color: var(--orange);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.product__title {
+  margin-top: 15px;
+  font-size: 2.6rem;
+}
+
+.product__description {
+  margin-top: 30px;
+  color: var(--dark-grayish-blue);
+  font-size: 1rem;
+}
+
+.product__offer {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .product__price {
+    font-size: 1.7rem;
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  .product__discount {
+    background-color: var(--pale-orange);
+    padding: 2px 8px;
+    color: var(--orange);
+    font-weight: 700;
+    border-radius: 4px;
+  }
+}
+
+.product__normal {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--grayish-blue);
+  text-decoration: line-through;
+  font-weight: 700;
+}
+
+.product__cart {
+  margin-top: 35px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+
+  .product__add {
+    width: 140px;
+    height: 50px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    background-color: var(--light-grayish-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .product__count {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    .product__less,
+    .product__more {
+      border: none;
+      background-color: var(--light-grayish-blue);
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 1.4rem;
+      padding-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .product__less:hover,
+    .product__more:hover {
+      --orange: hsl(26, 98%, 64%);
+      color: var(--orange);
+    }
+  }
+}
+
+.product__add__cart::before {
+  content: url("../../../../assets/images/icon-cart.svg");
+  display: inline-block;
+  margin-right: 15px;
+  filter: hue-rotate(60deg) brightness(500%);
+  transform: scale(0.7, 0.7);
+  vertical-align: -25%;
+}
+
+.product__add__cart {
+  width: 240px;
+  height: 50px;
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--orange);
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.product__add__cart:hover {
+  --orange: hsl(26, 98%, 64%);
+  background-color: var(--orange);
+  box-shadow: 2px 2px 8px var(--orange);
+}
