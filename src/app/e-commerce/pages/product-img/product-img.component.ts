@@ -12,15 +12,19 @@ export class ProductImgComponent implements OnInit {
   productosImg: ImageItem[] = [
     {
       name: 'image-product-1-thumbnail.jpg',
+      active: true,
     },
     {
       name: 'image-product-2-thumbnail.jpg',
+      active: false,
     },
     {
       name: 'image-product-3-thumbnail.jpg',
+      active: false,
     },
     {
       name: 'image-product-4-thumbnail.jpg',
+      active: false,
     },
   ];
 
@@ -29,6 +33,11 @@ export class ProductImgComponent implements OnInit {
   ngOnInit(): void {}
 
   selected(image: string): void {
+    this.productosImg = this.productosImg.map((product) => ({
+      ...product,
+      active: product.name === image ? true : false,
+    }));
+
     const imagePath = image.replace('-thumbnail', '');
     this.urlImage = imagePath;
   }

@@ -3,13 +3,19 @@
     <img [src]="urlImage | imagen" alt="" class="product__img" />
   </picture>
   <div class="product__carousel">
-    <img
+    <picture
+      class="product__picture__item"
       *ngFor="let item of productosImg"
-      [src]="item.name | imagen"
-      alt="Product"
-      class="product__item"
-      (click)="selected(item.name)"
-      (dblclick)="expand()"
-    />
+      [ngClass]="{ active__border: item.active }"
+    >
+      <img
+        [src]="item.name | imagen"
+        alt="Product"
+        [ngClass]="{ active__img: item.active }"
+        class="product__img__item"
+        (click)="selected(item.name)"
+        (dblclick)="expand()"
+      />
+    </picture>
   </div>
 </section>
