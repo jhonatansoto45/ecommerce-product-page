@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ImageItem } from '../../interfaces/ecommerce.interface';
 
 @Component({
-  selector: 'app-product-img',
-  templateUrl: './product-img.component.html',
-  styleUrls: ['./product-img.component.scss'],
+  selector: 'app-popup-product',
+  templateUrl: './popup-product.component.html',
+  styleUrls: ['./popup-product.component.scss'],
 })
-export class ProductImgComponent implements OnInit {
+export class PopupProductComponent implements OnInit {
   urlImage: string = 'image-product-1.jpg';
 
   popupProduct: boolean = false;
@@ -30,6 +30,7 @@ export class ProductImgComponent implements OnInit {
     },
   ];
 
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -42,15 +43,5 @@ export class ProductImgComponent implements OnInit {
 
     const imagePath = image.replace('-thumbnail', '');
     this.urlImage = imagePath;
-  }
-
-  expand(): void {
-    if (this.popupProduct) return;
-
-    console.log('expanding product');
-
-    this.popupProduct = true;
-    /* const section = document.querySelector('.product__popup') as HTMLElement;
-    section.classList.add('product__popup'); */
   }
 }
