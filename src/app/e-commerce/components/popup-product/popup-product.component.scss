@@ -7,6 +7,17 @@
   max-width: 530px;
   margin: 5% auto;
   position: relative;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .product {
@@ -52,7 +63,7 @@
   }
 
   .product__img__item:hover {
-    opacity: 0.5;
+    filter: grayscale(0.8) contrast(0.4) saturate(3) brightness(1.6);
   }
 }
 
@@ -62,7 +73,12 @@
 }
 
 .active__img {
-  opacity: 0.5;
+  filter: grayscale(0.8) contrast(0.4) saturate(3) brightness(1.6);
+}
+
+.product__close {
+  border: none;
+  background-color: transparent;
 }
 
 //*  BOTONES

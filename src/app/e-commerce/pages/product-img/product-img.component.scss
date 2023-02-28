@@ -38,7 +38,7 @@
   }
 
   .product__img__item:hover {
-    opacity: 0.5;
+    filter: grayscale(0.8) contrast(0.4) saturate(3) brightness(1.6);
   }
 }
 
@@ -48,7 +48,7 @@
 }
 
 .active__img {
-  opacity: 0.5;
+  filter: grayscale(0.8) contrast(0.4) saturate(3) brightness(1.6);
 }
 
 .product__popup {

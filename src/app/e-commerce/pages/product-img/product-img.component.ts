@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EcommerceService } from '../../../service/ecommerce.service';
-import { ImageItem } from '../../interfaces/ecommerce.interface';
+import { ImageItem, OnClosePopup } from '../../interfaces/ecommerce.interface';
 
 @Component({
   selector: 'app-product-img',
@@ -38,8 +38,9 @@ export class ProductImgComponent implements OnInit {
     this.popupProduct = true;
   }
 
-  closePopup(evt: boolean): void {
-    if (evt) return;
-    this.popupProduct = evt;
+  closePopup({ close, imageActive }: OnClosePopup): void {
+    if (close) return;
+    this.popupProduct = close;
+    this.urlImage = imageActive;
   }
 }
