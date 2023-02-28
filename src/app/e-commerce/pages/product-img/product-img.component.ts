@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EcommerceService } from '../../../service/ecommerce.service';
 import { ImageItem } from '../../interfaces/ecommerce.interface';
 
 @Component({
@@ -11,34 +12,21 @@ export class ProductImgComponent implements OnInit {
 
   popupProduct: boolean = false;
 
-  productosImg: ImageItem[] = [
-    {
-      name: 'image-product-1-thumbnail.jpg',
-      active: true,
-    },
-    {
-      name: 'image-product-2-thumbnail.jpg',
-      active: false,
-    },
-    {
-      name: 'image-product-3-thumbnail.jpg',
-      active: false,
-    },
-    {
-      name: 'image-product-4-thumbnail.jpg',
-      active: false,
-    },
-  ];
-
-  constructor() {}
+  constructor(private eComService: EcommerceService) {}
 
   ngOnInit(): void {}
 
+  get productosImg(): ImageItem[] {
+    return [...this.eComService.productosImg];
+  }
+
   selected(image: string): void {
-    this.productosImg = this.productosImg.map((product) => ({
-      ...product,
-      active: product.name === image ? true : false,
-    }));
+    this.eComService.productosImg = this.eComService.productosImg.map(
+      (product) => ({
+        ...product,
+        active: product.name === image ? true : false,
+      })
+    );
 
     const imagePath = image.replace('-thumbnail', '');
     this.urlImage = imagePath;
@@ -47,10 +35,11 @@ export class ProductImgComponent implements OnInit {
   expand(): void {
     if (this.popupProduct) return;
 
-    console.log('expanding product');
-
     this.popupProduct = true;
-    /* const section = document.querySelector('.product__popup') as HTMLElement;
-    section.classList.add('product__popup'); */
+  }
+
+  closePopup(evt: boolean): void {
+    if (evt) return;
+    this.popupProduct = evt;
   }
 }

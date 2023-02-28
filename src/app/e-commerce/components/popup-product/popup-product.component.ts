@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { EcommerceService } from '../../../service/ecommerce.service';
 import { ImageItem } from '../../interfaces/ecommerce.interface';
 
 @Component({
@@ -8,40 +9,31 @@ import { ImageItem } from '../../interfaces/ecommerce.interface';
 })
 export class PopupProductComponent implements OnInit {
   urlImage: string = 'image-product-1.jpg';
-
   popupProduct: boolean = false;
 
-  productosImg: ImageItem[] = [
-    {
-      name: 'image-product-1-thumbnail.jpg',
-      active: true,
-    },
-    {
-      name: 'image-product-2-thumbnail.jpg',
-      active: false,
-    },
-    {
-      name: 'image-product-3-thumbnail.jpg',
-      active: false,
-    },
-    {
-      name: 'image-product-4-thumbnail.jpg',
-      active: false,
-    },
-  ];
+  @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-
-  constructor() {}
+  constructor(private eComService: EcommerceService) {}
 
   ngOnInit(): void {}
 
+  get productosImg(): ImageItem[] {
+    return [...this.eComService.productosImg];
+  }
+
   selected(image: string): void {
-    this.productosImg = this.productosImg.map((product) => ({
-      ...product,
-      active: product.name === image ? true : false,
-    }));
+    this.eComService.productosImg = this.eComService.productosImg.map(
+      (product) => ({
+        ...product,
+        active: product.name === image ? true : false,
+      })
+    );
 
     const imagePath = image.replace('-thumbnail', '');
     this.urlImage = imagePath;
+  }
+
+  closePopup(): void {
+    this.onClose.emit(false);
   }
 }

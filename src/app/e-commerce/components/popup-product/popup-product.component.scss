@@ -1,23 +1,116 @@
 .product__popup {
-  --black: hsl(0, 0%, 0%, 75%);
-  width: 100%;
-  height: 100%;
-  background-color: var(--black);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 530px;
+  max-width: 530px;
+  margin: 5% auto;
+  position: relative;
 }
 
-.product__article {
+.product {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: aliceblue;
+  padding: 0 130px;
+}
+
+.product__picture {
+  display: block;
   width: 500px;
-  height: 600px;
-  margin: 12% auto;
+  height: 500px;
+  margin: 0 auto;
+  cursor: pointer;
+
+  .product__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+}
+
+.product__carousel {
+  width: 430px;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  .product__picture__item {
+    display: block;
+    width: 80px;
+    height: 80px;
+  }
+
+  .product__img__item {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .product__img__item:hover {
+    opacity: 0.5;
+  }
+}
+
+.active__border {
+  border: 2px solid var(--orange);
+  border-radius: 8px;
+}
+
+.active__img {
+  opacity: 0.5;
+}
+
+//*  BOTONES
+.product__btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  background-color: var(--white);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.product__close::before {
+  content: url("../../../../assets/images/icon-close.svg");
+  position: absolute;
+  right: 22px;
+  top: -32px;
+  filter: hue-rotate(60deg) brightness(500%);
+  transform: scale(1.2, 1.2);
+  transition: 0.3s ease-in-out all;
+  cursor: pointer;
+}
+
+.product__prev {
+  position: absolute;
+  top: 250px;
+  left: -11px;
+}
+
+.product__next {
+  position: absolute;
+  top: 250px;
+  right: -11px;
+}
+
+.product__next::before {
+  content: url("../../../../assets/images/icon-next.svg");
+}
+
+.product__prev::before {
+  content: url("../../../../assets/images/icon-previous.svg");
+}
+
+.product__close:hover::before,
+.product__prev:hover::before,
+.product__next:hover::before {
+  //* COLOR ORANGE
+  filter: brightness(0) saturate(100%) invert(51%) sepia(83%) saturate(938%)
+    hue-rotate(345deg) brightness(98%) contrast(106%);
 }

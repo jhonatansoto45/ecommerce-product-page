@@ -1,5 +1,27 @@
-<section class="product__popup">
-  <article class="product__article">
-
-  </article>
-</section>
+<main class="product__popup">
+  <button class="product__close" (click)="closePopup()"></button>
+  <section class="product">
+    <button class="product__btn product__prev"></button>
+    <article class="product__item">
+      <picture class="product__picture">
+        <img [src]="urlImage | imagen" alt="" class="product__img" />
+      </picture>
+      <div class="product__carousel">
+        <picture
+          class="product__picture__item"
+          *ngFor="let item of productosImg"
+          [ngClass]="{ active__border: item.active }"
+          (click)="selected(item.name)"
+        >
+          <img
+            [src]="item.name | imagen"
+            alt="Product"
+            [ngClass]="{ active__img: item.active }"
+            class="product__img__item"
+          />
+        </picture>
+      </div>
+    </article>
+    <button class="product__btn product__next"></button>
+  </section>
+</main>

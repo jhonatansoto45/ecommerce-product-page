@@ -19,6 +19,6 @@
   </div>
 </section>
 
-<ng-container *ngIf="popupProduct">
-  <app-popup-product></app-popup-product>
-</ng-container>
+<div *ngIf="popupProduct" class="product__popup">
+  <app-popup-product (onClose)="closePopup($event)" ></app-popup-product>
+</div>
