@@ -1,5 +1,12 @@
 <section class="cart">
   <div class="cart__title">Cart</div>
+  <ng-container
+    *ngIf="existProduct; then product; else notProduct"
+  ></ng-container>
+  <button class="cart__check" [disabled]="!existProduct">Checkout</button>
+</section>
+
+<ng-template #product>
   <article class="cart___list">
     <div class="cart__item">
       <img
@@ -11,11 +18,18 @@
         <p class="cart__product" title="Fall Limited Edition Sneakers">
           Fall Limited Edition Sneakers
         </p>
-        <span class="cart__price">$125.00 x 3 </span>
-        <strong class="cart__total">$375.00</strong>
+        <span class="cart__price"
+          >${{ dataItem.price | number }} x {{ dataItem.quantity }}
+        </span>
+        <strong class="cart__total">${{ result | number }}</strong>
       </div>
-      <button class="cart__delete" title="Delete"></button>
+      <button class="cart__delete" title="Delete" (click)="remove()" ></button>
     </div>
   </article>
-  <button class="cart__check">Checkout</button>
-</section>
+</ng-template>
+
+<ng-template #notProduct>
+  <div class="not__product">
+    <span>Your cart is empty.</span>
+  </div>
+</ng-template>

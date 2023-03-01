@@ -11,17 +11,34 @@ import { CartItem } from '../../interfaces/ecommerce.interface';
 export class CartComponent implements OnInit, OnDestroy {
   listeningCart: Subscription = new Subscription();
 
+  dataItem: CartItem = { price: 0, quantity: 0 };
+
+  result: number | null = null;
+
+  existProduct: boolean = false;
+
   constructor(private eComService: EcommerceService) {}
 
   ngOnInit(): void {
     this.listeningCart = this.eComService.cartItem$.subscribe(
-      (cartItem: CartItem[]) => {
-        console.log(cartItem);
+      (cartItem: CartItem) => {
+        this.existProduct = cartItem.quantity > 0 ? true : false;
+
+        this.dataItem = cartItem;
+        this.total();
       }
     );
   }
 
   ngOnDestroy(): void {
     this.listeningCart.unsubscribe();
+  }
+
+  total(): void {
+    this.result = this.eComService.totalProduct(this.dataItem);
+  }
+
+  remove():void {
+    this.eComService.cartItem$.next({ price: 0, quantity: 0 })
   }
 }

@@ -9,9 +9,7 @@ import {
   providedIn: 'root',
 })
 export class EcommerceService {
-  cartItem$: Subject<CartItem[]> = new Subject<CartItem[]>();
-
-  cartDataItem: CartItem[] = [];
+  cartItem$: Subject<CartItem> = new Subject<CartItem>();
 
   productosImg: ImageItem[] = [
     {
@@ -34,23 +32,7 @@ export class EcommerceService {
 
   constructor() {}
 
-  get sessionStorageLoad(): any {
-    return sessionStorage.getItem(JSON.parse('cart'));
-  }
-
-  saveProduct(dataItem: CartItem, operator: '+' | '-'): void {
-    if (operator !== '+') {
-      this.cartDataItem = this.cartDataItem.filter(
-        (item) => item.quantity !== dataItem.quantity
-      );
-
-      sessionStorage.setItem('cart', JSON.stringify(dataItem));
-      this.cartItem$.next(this.cartDataItem);
-      return;
-    }
-
-    sessionStorage.setItem('cart', JSON.stringify(dataItem));
-    this.cartDataItem.push(dataItem);
-    this.cartItem$.next(this.cartDataItem);
+  totalProduct(item: CartItem): number {
+    return item.price * item.quantity;
   }
 }

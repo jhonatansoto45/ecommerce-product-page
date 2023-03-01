@@ -75,3 +75,22 @@
 .cart__delete:hover::before {
   filter: brightness(0.1);
 }
+
+.not__product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+
+  span {
+    color: var(--dark-grayish-blue);
+    font-weight: 700;
+  }
+}
+
+.cart__check:disabled,
+.cart__check:disabled:active {
+  background-color: var(--pale-orange);
+  filter: none;
+}
