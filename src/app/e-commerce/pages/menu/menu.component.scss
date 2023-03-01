@@ -112,12 +112,78 @@
   display: none;
 }
 
+//* MENU LATERAL
+
+.menu__backdrop {
+  --black: hsl(0, 0%, 0%, 75%);
+  background-color: var(--black);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.menu {
+  background-color: var(--white);
+  position: absolute;
+  width: 50%;
+  min-width: 200px;
+  padding: 25px;
+  height: 100vh;
+}
+
+.menu__list {
+  list-style: none;
+}
+
+.menu__item {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.menu__close {
+  cursor: pointer;
+  border: none;
+  background-color: var(--white);
+  margin-bottom: 30px;
+}
+
+.menu__close::before {
+  content: url("../../../../assets/images/icon-close.svg");
+}
+
 @media screen and (max-width: 875px) {
   .header__item {
     display: none;
   }
 
+  .header__list {
+    gap: 18px;
+  }
+
   .header__menu {
     display: inline;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .header {
+    border-bottom: none;
+  }
+
+  .cart {
+    position: static;
+  }
+
+  .cart__popup {
+    top: 180px;
+    left: -81px;
+    width: 90%;
+    height: 250px;
+    margin: 0 auto;
   }
 }

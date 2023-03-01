@@ -1,11 +1,15 @@
 .product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0 130px;
+  position: relative;
 }
 
 .product__picture {
   display: block;
-  width: 430px;
-  height: 430px;
+  width: 500px;
+  height: 500px;
   margin: 0 auto;
   cursor: pointer;
 
@@ -51,6 +55,44 @@
   filter: grayscale(0.8) contrast(0.4) saturate(3) brightness(1.6);
 }
 
+//*  BOTONES
+.product__btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  background-color: var(--white);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.product__prev {
+  display: none;
+  position: absolute;
+  left: 0;
+}
+
+.product__next {
+  display: none;
+  position: absolute;
+  right: 0;
+}
+
+.product__next::before {
+  content: url("../../../../assets/images/icon-next.svg");
+}
+
+.product__prev::before {
+  content: url("../../../../assets/images/icon-previous.svg");
+}
+
+.product__prev:hover::before,
+.product__next:hover::before {
+  //* COLOR ORANGE
+  filter: brightness(0) saturate(100%) invert(51%) sepia(83%) saturate(938%)
+    hue-rotate(345deg) brightness(98%) contrast(106%);
+}
+
 .product__popup {
   --black: hsl(0, 0%, 0%, 75%);
   background-color: var(--black);
@@ -60,4 +102,35 @@
   top: 0;
   left: 0;
   z-index: 2;
+}
+
+@media screen and (max-width: 610px) {
+  .product {
+    padding: 0;
+  }
+
+  .product__item {
+    width: 100%;
+  }
+
+  .product__carousel {
+    display: none;
+  }
+
+  .product__picture,
+  .product__carousel {
+    width: 100%;
+    height: 350px;
+  }
+  .product__picture {
+    .product__img {
+      border-radius: 0;
+      object-fit: cover;
+    }
+  }
+
+  .product__prev,
+  .product__next {
+    display: inline-block;
+  }
 }

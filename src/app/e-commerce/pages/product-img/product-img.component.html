@@ -1,24 +1,29 @@
-<section class="product">
-  <picture class="product__picture" (click)="expand()">
-    <img [src]="urlImage | imagen" alt="" class="product__img" />
-  </picture>
-  <div class="product__carousel">
-    <picture
-      class="product__picture__item"
-      *ngFor="let item of productosImg"
-      [ngClass]="{ active__border: item.active }"
-      (click)="selected(item.name)"
-    >
-      <img
-        [src]="item.name | imagen"
-        alt="Product"
-        [ngClass]="{ active__img: item.active }"
-        class="product__img__item"
-      />
-    </picture>
-  </div>
-</section>
+  <section class="product">
+    <button class="product__btn product__prev" (click)="previous()"></button>
+    <article class="product__item">
+      <picture class="product__picture">
+        <img [src]="urlImage | imagen" alt="" class="product__img" />
+      </picture>
+      <div class="product__carousel">
+        <picture
+          class="product__picture__item"
+          *ngFor="let item of productosImg"
+          [ngClass]="{ active__border: item.active }"
+          (click)="selected(item.name)"
+        >
+          <img
+            [src]="item.name | imagen"
+            alt="Product"
+            [ngClass]="{ active__img: item.active }"
+            class="product__img__item"
+          />
+        </picture>
+      </div>
+    </article>
+    <button class="product__btn product__next" (click)="next()"></button>
+  </section>
+
 
 <div *ngIf="popupProduct" class="product__popup">
-  <app-popup-product (onClose)="closePopup($event)" ></app-popup-product>
+  <app-popup-product (onClose)="activePopup($event)" ></app-popup-product>
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 interface MenuItem {
   name: string;
@@ -11,6 +11,15 @@ interface MenuItem {
 })
 export class MenuComponent {
   visibleCart: boolean = false;
+  menuLateral: boolean = false;
+
+  readonly maxViewportWidth: number = 610;
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    const viewportWidth = window.innerWidth;
+    if (viewportWidth > this.maxViewportWidth) this.menuLateral = false;
+  }
 
   menuItem: MenuItem[] = [
     {
@@ -32,5 +41,13 @@ export class MenuComponent {
 
   openCart(): void {
     this.visibleCart = !this.visibleCart;
+  }
+
+  openMenu(): void {
+    this.menuLateral = true;
+  }
+
+  closeMenu(): void {
+    this.menuLateral = false;
   }
 }

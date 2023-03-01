@@ -94,3 +94,9 @@
   background-color: var(--pale-orange);
   filter: none;
 }
+
+@media screen and (max-width: 610px) {
+  .cart___list {
+    width: 100%;
+  }
+}

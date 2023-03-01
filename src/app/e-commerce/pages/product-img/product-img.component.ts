@@ -12,6 +12,8 @@ export class ProductImgComponent implements OnInit {
 
   popupProduct: boolean = false;
 
+  indexImage: number = 0;
+
   constructor(private eComService: EcommerceService) {}
 
   ngOnInit(): void {}
@@ -38,9 +40,31 @@ export class ProductImgComponent implements OnInit {
     this.popupProduct = true;
   }
 
-  closePopup({ close, imageActive }: OnClosePopup): void {
+  activePopup({ close, imageActive }: OnClosePopup): void {
     if (close) return;
     this.popupProduct = close;
     this.urlImage = imageActive;
+  }
+
+  next(): void {
+    if (this.indexImage === this.productosImg.length - 1) {
+      this.indexImage = -1;
+    }
+
+    this.indexImage = ++this.indexImage;
+
+    const { name } = this.productosImg.find((_, i) => i === this.indexImage)!;
+
+    this.selected(name);
+  }
+
+  previous(): void {
+    if (this.indexImage === 0) this.indexImage = this.productosImg.length;
+
+    this.indexImage = --this.indexImage;
+
+    const { name } = this.productosImg.find((_, i) => i === this.indexImage)!;
+
+    this.selected(name);
   }
 }

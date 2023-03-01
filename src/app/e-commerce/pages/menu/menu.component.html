@@ -1,6 +1,6 @@
 <header class="header">
   <ul class="header__list">
-    <button class="header__menu"></button>
+    <button class="header__menu" (click)="openMenu()"></button>
     <img src="../../../../assets/images/logo.svg" alt="logo" />
     <li *ngFor="let item of menuItem" class="header__item">{{ item.name }}</li>
   </ul>
@@ -29,3 +29,16 @@
     </div>
   </div>
 </ng-template>
+
+<ng-container *ngIf="menuLateral">
+  <div class="menu__backdrop">
+    <div class="menu">
+      <button class="menu__close" (click)="closeMenu()"></button>
+      <ul class="menu__list">
+        <li *ngFor="let item of menuItem" class="menu__item">
+          {{ item.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-container>

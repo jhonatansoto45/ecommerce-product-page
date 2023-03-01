@@ -1,3 +1,8 @@
+app-menu,
+app-product {
+  display: block;
+}
+
 .section {
   margin: 100px 0;
   width: 100%;
@@ -14,5 +19,15 @@
 @media screen and (max-width: 1117px) {
   .section {
     flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .section {
+    margin: 0;
+  }
+
+  .section__img {
+    margin: 0 !important;
   }
 }
