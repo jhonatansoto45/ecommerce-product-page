@@ -1,5 +1,6 @@
 <header class="header">
   <ul class="header__list">
+    <button class="header__menu"></button>
     <img src="../../../../assets/images/logo.svg" alt="logo" />
     <li *ngFor="let item of menuItem" class="header__item">{{ item.name }}</li>
   </ul>
@@ -7,15 +8,23 @@
   <div class="header__shop">
     <ng-container [ngTemplateOutlet]="cart"></ng-container>
     <picture class="header__picture">
-      <img src="../../../../assets/images/image-avatar.png" alt="user" class="header__img" />
+      <img
+        src="../../../../assets/images/image-avatar.png"
+        alt="user"
+        class="header__img"
+      />
     </picture>
   </div>
 </header>
 
 <ng-template #cart>
   <div class="cart">
-    <button class="header_cart" (click)="openCart()" ></button>
-    <div class="cart__popup" id="cart__popup" [ngClass]="{'not-visible': !visibleCart}" >
+    <button class="header_cart" (click)="openCart()"></button>
+    <div
+      class="cart__popup"
+      id="cart__popup"
+      [ngClass]="{ 'not-visible': !visibleCart }"
+    >
       <app-cart></app-cart>
     </div>
   </div>
