@@ -21,6 +21,13 @@
   font-size: 1rem;
 }
 
+.product__money {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .product__offer {
   margin-top: 30px;
   display: flex;
@@ -126,5 +133,15 @@
   .product__add,
   .product__add__cart {
     width: 100%;
+  }
+
+  .product__money {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .product__normal {
+    margin-top: 28px;
   }
 }

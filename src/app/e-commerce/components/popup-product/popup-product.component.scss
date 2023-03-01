@@ -130,3 +130,29 @@
   filter: brightness(0) saturate(100%) invert(51%) sepia(83%) saturate(938%)
     hue-rotate(345deg) brightness(98%) contrast(106%);
 }
+
+@media screen and (max-width: 610px) {
+  .product__popup {
+    width: 90%;
+    margin-top: 150px;
+  }
+
+  .product__picture {
+    width: 250px;
+    height: 250px;
+  }
+
+  .product__carousel {
+    width: 300px;
+    height: 110px;
+  }
+
+  .product__next {
+    top: 111px;
+    right: 36px;
+  }
+  .product__prev {
+    top: 111px;
+    left: 36px;
+  }
+}

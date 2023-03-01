@@ -1,7 +1,7 @@
   <section class="product">
     <button class="product__btn product__prev" (click)="previous()"></button>
     <article class="product__item">
-      <picture class="product__picture">
+      <picture class="product__picture" (click)="expand()">
         <img [src]="urlImage | imagen" alt="" class="product__img" />
       </picture>
       <div class="product__carousel">
