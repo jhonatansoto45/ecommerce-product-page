@@ -31,17 +31,14 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   moreProduct(): void {
     this.product = this.product + 1;
-
-    this.eCommService.cartItem$.next({
-      price: 125000,
-      quantity: this.product,
-    });
   }
 
   lessProduct(): void {
     if (this.product === 0) return;
     this.product = this.product - 1;
+  }
 
+  addCart(): void {
     this.eCommService.cartItem$.next({
       price: 125000,
       quantity: this.product === 0 ? 0 : this.product,
