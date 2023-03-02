@@ -1,27 +1,48 @@
-# ProductPageApp
+# Frontend Mentor - E-commerce product page solution
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Development server
+### The challenge
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Users should be able to:
 
-## Code scaffolding
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Open a lightbox gallery by clicking on the large product image
+- Switch the large product image by clicking on the small thumbnail images
+- Add items to the cart
+- View the cart and remove items from it
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Screenshot
 
-## Build
+![](./src/assets/duplicate/1.png)
+![](./src/assets/duplicate/2.png)
+![](./src/assets/duplicate/3.png)
+![](./src/assets/duplicate/4.png)
+![](./src/assets/duplicate/5.png)
+![](./src/assets/duplicate/6.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Links
 
-## Running unit tests
+- Solution URL: [here](https://github.com/jhonatansoto45/ecommerce-product-page)
+- Live Site URL: [here](https://ecommerce-product-page-flame.vercel.app/e-commerce/home)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Built with
 
-## Running end-to-end tests
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [Angular](https://angular.io/) - JS Framework
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Continued development
 
-## Further help
+I want to continue learning ux/ui on mobile devices. global status of a frontend application and design patterns to give robustness to a multi access system.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Author
+
+- Frontend Mentor - [@jhonatansoto45](https://www.frontendmentor.io/profile/jhonatansoto45)
+- Twitter - [@Bautistajhonata](https://www.twitter.com/Bautistajhonata)
+
+
